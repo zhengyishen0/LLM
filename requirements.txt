@@ -60,6 +60,7 @@ numpy==1.26.4
 openai==1.11.1
 orjson==3.9.13
 packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1696202382185/work
+pandas==2.2.0
 parso @ file:///home/conda/feedstock_root/build_artifacts/parso_1638334955874/work
 pexpect @ file:///home/conda/feedstock_root/build_artifacts/pexpect_1706113125309/work
 pickleshare @ file:///home/conda/feedstock_root/build_artifacts/pickleshare_1602536217715/work
@@ -75,6 +76,7 @@ Pygments @ file:///home/conda/feedstock_root/build_artifacts/pygments_1700607939
 pylint==3.0.3
 python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
 python-dotenv==1.0.1
+pytz==2024.1
 PyYAML==6.0.1
 pyzmq @ file:///Users/runner/miniforge3/conda-bld/pyzmq_1701783254483/work
 regex==2023.12.25
@@ -98,6 +100,7 @@ traitlets @ file:///home/conda/feedstock_root/build_artifacts/traitlets_17042129
 types-requests==2.31.0.20240125
 typing-inspect==0.9.0
 typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1702176139754/work
+tzdata==2023.4
 urllib3==2.2.0
 uvicorn==0.27.0.post1
 wcwidth @ file:///home/conda/feedstock_root/build_artifacts/wcwidth_1704731205417/work

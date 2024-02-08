@@ -15,14 +15,14 @@ echo $OLLAMA_HOST
 ollama run mistral
 ```
 
-````zsh
+```zsh
 autogenstudio ui --port 8081
-
+```
 
 ```zsh
 pip freeze > requirements.txt
 pip install -r requirements.txt
-````
+```
 
 ```zsh
 conda create -n llm python=3.10

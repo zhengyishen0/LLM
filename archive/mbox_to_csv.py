@@ -1,7 +1,7 @@
 import mailbox
 import csv
-from email import policy
-from email.parser import BytesParser
+# from email import policy
+# from email.parser import BytesParser
 
 
 def get_body(message):
@@ -44,7 +44,7 @@ def mbox_to_csv(mbox_file_path, csv_file_path):
 
 
 # Usage
-mbox_file_path = 'Sent.mbox'  # replace with the path to your MBOX file
+mbox_file_path = 'data/Sent.mbox'  # replace with the path to your MBOX file
 # replace with the desired path for the output CSV file
-csv_file_path = 'past_email_mbox.csv'
+csv_file_path = 'data/past_email_mbox.csv'
 mbox_to_csv(mbox_file_path, csv_file_path)
