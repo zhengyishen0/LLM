@@ -16,15 +16,19 @@ csv_path = "data/email_pairs.csv"
 index_path = "data/email_index.index"
 
 
-# Load the email pairs from the CSV file
+# Load email pairs from the CSV file
 def load_csv_data(file_path, csv_path):
     data = pd.read_csv(file_path)
     filtered_data = data[['subject_original', 'body_original', 'body_reply']]
     filtered_data.to_csv(csv_path, index=False)
 
 
-# Load email data from the CSV file
-def index_data(csv_path, index_path):
+# Load email data from the CSV or Index file
+def load_index(csv_path, index_path):
+    if os.path.isfile(index_path):
+        vector = FAISS.load_local(index_path)
+        return vector
+
     loader = CSVLoader(csv_path)
     docs = loader.load()
     text_splitter = RecursiveCharacterTextSplitter()
@@ -37,11 +41,7 @@ def index_data(csv_path, index_path):
     return vector
 
 
-if os.path.isfile(index_path):
-    vector = FAISS.load_local(index_path)
-else:
-    vector = index_data(csv_path, index_path)
-
+vector = load_index(csv_path, index_path)
 retriever = vector.as_retriever()
 
 template = """
@@ -55,6 +55,7 @@ Email: {input}
 """
 
 
+# Construct the chain
 prompt = ChatPromptTemplate.from_template(template)
 model = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.0)
 output_parser = StrOutputParser()
@@ -63,6 +64,8 @@ retrieval = RunnableParallel(context=retriever, input=RunnablePassthrough())
 
 chain = retrieval | prompt | model | output_parser
 
+
+# Invoke the chain
 mail = """
 hi Zhengyi,
 
