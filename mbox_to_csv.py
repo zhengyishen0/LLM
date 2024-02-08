@@ -1,56 +1,69 @@
 import pandas as pd
 import mailbox
-import csv
+from bs4 import BeautifulSoup as bs
+import quopri
 
 
 def mbox_to_csv(mbox_file_path, csv_file_path):
     # Open the mbox file
     mbox = mailbox.mbox(mbox_file_path)
+    msg_list = list(mbox)
 
-    # Open or create the csv file
-    with open(csv_file_path, 'w', newline='', encoding='utf-8') as file:
-        writer = csv.writer(file)
+    headers = ['subject', 'from', 'to', 'date', 'body']
+    df = pd.DataFrame(columns=headers)
 
-        # Write the header to the csv file
-        writer.writerow(['Subject', 'From', 'To', 'Date', 'Body'])
+    for message in msg_list:
+        if message.is_multipart():
+            for submessage in message.get_payload():
+                for key in headers:
+                    submessage[key] = message[key]
+                msg_list.append(submessage)
+        else:
+            payload = message.get_payload()
+            if len(payload) > 2000:
+                continue
+            text = bs(payload, "html.parser").get_text()
+            ascii_text = text.encode('ascii', 'replace').decode()
+            try:
+                body = quopri.decodestring(
+                    ascii_text).decode()
 
-        # Loop through the messages in the mbox file
-        for message in mbox:
-            # Write the message data to the csv file
-            writer.writerow([message['subject'], message['from'],
-                            message['to'], message['date'], message.get_payload()])
+                new_row = {}
+                for key in headers:
+                    new_row[key] = message[key]
+                new_row['body'] = body
+                df.loc[len(df)] = new_row
+            except:
+                pass
+
+    df.to_csv(csv_file_path, index=False)
 
 
-def get_user_emails(file_name, user_email_address):
+def get_user_emails(csv_file_path, user_name):
     # Load the CSV data
-    data = pd.read_csv(file_name)
+    data = pd.read_csv(csv_file_path)
 
-    # Filter emails sent by User
-    user_emails = data[data['From'] == user_email_address]
-
-    # Identify emails that are replies
-    reply_emails = user_emails[user_emails['Subject'].str.startswith('Re:')]
-
-    # Remove the 'Re: ' part from the start of these subjects
-    reply_emails['Original_Subject'] = reply_emails['Subject'].str[4:]
+    user_emails = data[data['from'].str.contains(user_name)]
+    user_emails['subject'] = user_emails['subject'].fillna('')
+    reply_emails = user_emails[user_emails['subject'].str.startswith('Re:')]
+    reply_emails['original_subject'] = reply_emails['subject'].str[4:]
 
     # Now pair these reply emails with the original email they replied to, by matching subjects.
-    original_emails = user_emails[~user_emails['Subject'].str.startswith(
+    original_emails = user_emails[~user_emails['subject'].str.startswith(
         'Re:')]
 
     # Merge original and reply emails based on the subject (or original subject in the case of replies)
-    paired_emails = pd.merge(reply_emails, original_emails, left_on='Original_Subject', right_on='Subject',
+    paired_emails = pd.merge(reply_emails, original_emails, left_on='original_subject', right_on='subject',
                              suffixes=('_reply', '_original'))
 
     # Save the paired_emails DataFrame to a CSV file
-    user_name = user_email_address.split(
-        '<')[0].strip().lower().replace(' ', '_')
-    paired_emails.to_csv(f'data/{user_name}_emails.csv', index=False)
+    paired_emails.to_csv(f'data/emails.csv', index=False)
 
 
-file_name = 'data/mbox.csv'
-user_email_address = 'Zhengyi Shen <zhengyishen1@gmail.com>'
+mbox_file_path = 'data/Sent.mbox'
+csv_file_path = 'data/mbox.csv'
+user_name = 'Zhengyi'
 
-# Call the function with the path to your mbox file and the desired csv file
-mbox_to_csv('data/Sent.mbox', file_name)
-get_user_emails(file_name, user_email_address)
+
+# mbox_to_csv(mbox_file_path, csv_file_path)
+get_user_emails(csv_file_path, user_name)

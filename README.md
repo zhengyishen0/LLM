@@ -32,3 +32,14 @@ conda env remove --name llm
 conda activate llm
 conda deactivate
 ```
+
+```zsh
+echo 'function pipinstall() {
+    pip install "$@"
+    pip freeze > requirements.txt
+}' >> ~/.zshrc
+
+source ~/.zshrc
+
+# pipinstall numpy
+```

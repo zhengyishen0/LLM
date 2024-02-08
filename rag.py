@@ -13,6 +13,7 @@ docs = loader.load()
 text_splitter = RecursiveCharacterTextSplitter()
 documents = text_splitter.split_documents(docs)
 
+
 embeddings = OpenAIEmbeddings()
 vector = FAISS.from_documents(documents, embeddings)
 retriever = vector.as_retriever()
