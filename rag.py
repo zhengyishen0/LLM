@@ -32,11 +32,10 @@ Question: {input}
 prompt = ChatPromptTemplate.from_template(template)
 model = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.0)
 output_parser = StrOutputParser()
-setup_and_retrieval = RunnableParallel(
-    {"context": retriever, "input": RunnablePassthrough()}
-)
+retrieval = RunnableParallel(context=retriever, input=RunnablePassthrough())
+# retrieval = {"context": retriever, "input": RunnablePassthrough()}
 
-chain = setup_and_retrieval | prompt | model | output_parser
+chain = retrieval | prompt | model | output_parser
 
 response = chain.invoke("how can langsmith help with testing?")
 print(response)

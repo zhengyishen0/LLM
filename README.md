@@ -12,15 +12,23 @@
 export OLLAMA_HOST=...
 echo $OLLAMA_HOST
 
+ollama run mistral
+```
+
+````zsh
 autogenstudio ui --port 8081
 
-ollama run mistral
 
+```zsh
 pip freeze > requirements.txt
 pip install -r requirements.txt
+````
 
+```zsh
 conda create -n llm python=3.10
 conda env list
 conda env remove --name llm
+
 conda activate llm
+conda deactivate
 ```
