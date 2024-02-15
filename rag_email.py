@@ -2,10 +2,10 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough
 from langchain_openai.chat_models import ChatOpenAI
-from langchain_community.vectorstores import FAISS
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import CSVLoader
 from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_community.document_loaders import CSVLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 import pandas as pd
 import os
 
@@ -56,11 +56,11 @@ Email: {input}
 
 
 # Construct the chain
+retrieval = RunnableParallel(context=retriever, input=RunnablePassthrough())
+# retrieval = {'context': retriever, 'input': RunnablePassthrough()})
 prompt = ChatPromptTemplate.from_template(template)
 model = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.0)
 output_parser = StrOutputParser()
-retrieval = RunnableParallel(context=retriever, input=RunnablePassthrough())
-# retrieval = {"context": retriever, "input": RunnablePassthrough()}
 
 chain = retrieval | prompt | model | output_parser
 
