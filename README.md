@@ -22,10 +22,10 @@ We're going to cover the following topics:
 
 ### To Be Continued...
 
--[] Thoughts on chatmodels, chains, and agents
--[] OpenAI assistant
--[] LangChain Expression Language
--[] Low-code Tools: Flowise, LangFlow, n8n
+- [] Thoughts on chatmodels, chains, and agents
+- [] OpenAI assistant
+- [] LangChain Expression Language
+- [] Low-code Tools: Flowise, LangFlow, n8n
 
 ## Python Coding
 
