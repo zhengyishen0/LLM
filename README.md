@@ -22,10 +22,10 @@ We're going to cover the following topics:
 
 ### To Be Continued...
 
-- [] Thoughts on chatmodels, chains, and agents
-- [] OpenAI assistant
-- [] LangChain Expression Language
-- [] Low-code Tools: Flowise, LangFlow, n8n
+- [ ] Thoughts on chatmodels, chains, and agents
+- [ ] OpenAI assistant
+- [ ] LangChain Expression Language
+- [ ] Low-code Tools: Flowise, LangFlow, n8n
 
 ## Python Coding
 
@@ -87,7 +87,7 @@ pipinstall your-package-name
 
 #### Using Ollama
 
-Ollama is a powerful tool for LLM development. Down load it from [here](https://ollama.ai/).
+Ollama is a powerful tool for LLM development. Download it from [here](https://ollama.ai/).
 
 Then in your terminal, you can start using open-sourced LLMs like this.
 
