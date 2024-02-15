@@ -20,13 +20,6 @@ We're going to cover the following topics:
 - [Python Coding](#python-coding) (Environment setup, snippets, etc)
 - [Resources](#resources) (Website, Books, papers, articles, etc)
 
-### To Be Continued...
-
-- [ ] Thoughts on chatmodels, chains, and agents
-- [ ] OpenAI assistant
-- [ ] LangChain Expression Language
-- [ ] Low-code Tools: Flowise, LangFlow, n8n
-
 ## Python Coding
 
 ### Preparation
@@ -154,7 +147,7 @@ This is not necessarily a technique. It's just the very basic form of prompting:
 
 ### Chain of Thought (CoT)
 
-> Think step-by-step...
+> Step-by-step...
 
 This is the famous "think step-by-step" method. You append the "think step-by-step" instruction to your question and the model's performance will be improved magically.
 
@@ -166,13 +159,13 @@ RAG can be considered as an extension of the `few-shot prompting`. It's a techni
 
 **RAG vs Fine-Tuning**
 
-> TL;DR: For beginner LLM developer, you should always prefer RAG to fine-tuning.
+_TL;DR: For beginner LLM developer, you should always prefer RAG to fine-tuning._
 
 RAG is better at using the up-to-date knowledge without retraining the model. Fine-tuning is better at creating specialized LLMs using smaller models. (Deep Dive [Here](https://www.promptingguide.ai/research/rag.en#rag-vs-fine-tuning))
 
 ### ReAct
 
-> Think before act, reflect after action...
+> Think and act...
 
 ReAct extend the idea of `Chain of Thought (CoT)` from the trace of reasoning to action. By taking action, the model can correct its reasoning by using the feedback from the observation of the action.
 
@@ -191,3 +184,29 @@ ReAct extend the idea of `Chain of Thought (CoT)` from the trace of reasoning to
 <!-- ```zsh
 autogenstudio ui --port 8081
 ``` -->
+
+## To Be Continued...
+
+- [ ] Thoughts on chatmodels, chains, and agents
+- [ ] OpenAI assistant
+- [ ] LangChain Expression Language
+- [ ] Low-code Tools: Flowise, LangFlow, n8n
+
+## Next Week
+
+- [ ] Study [LangChain Modules](https://python.langchain.com/docs/modules/)
+- [ ] Practice: Document Agent
+- [ ] Open Sourced Models: Mistral, Llama, Open Interpreter
+- [ ] LangChain [Debugging](https://python.langchain.com/docs/guides/debugging) and [Fallbacks](https://python.langchain.com/docs/guides/fallbacks)
+
+## Project H.E.R
+
+- [ ] APIs (e.g. Uber)
+- [ ] Conversation starter detection
+- [ ] Conversation ender
+- [ ] Agent model
+- [ ] Audio streaming
+- [ ] Voice recognition
+- [ ] API developer GPT
+- [ ] 3rd-party Service login interface
+- [ ] Adaptive Visual Interface (map, list view)
