@@ -20,6 +20,13 @@ We're going to cover the following topics:
 - [Python Coding](#python-coding) (Environment setup, snippets, etc)
 - [Resources](#resources) (Website, Books, papers, articles, etc)
 
+## To Be Continued...
+
+- [ ] Thoughts on chatmodels, chains, and agents
+- [ ] OpenAI assistant
+- [ ] LangChain Expression Language
+- [ ] Low-code Tools: Flowise, LangFlow, n8n
+
 ## Python Coding
 
 ### Preparation
@@ -159,7 +166,7 @@ RAG can be considered as an extension of the `few-shot prompting`. It's a techni
 
 **RAG vs Fine-Tuning**
 
-_TL;DR: For beginner LLM developer, you should always prefer RAG to fine-tuning._
+_TL;DR: For beginner LLM developer, you should always prefer RAG over fine-tuning._
 
 RAG is better at using the up-to-date knowledge without retraining the model. Fine-tuning is better at creating specialized LLMs using smaller models. (Deep Dive [Here](https://www.promptingguide.ai/research/rag.en#rag-vs-fine-tuning))
 
@@ -184,13 +191,6 @@ ReAct extend the idea of `Chain of Thought (CoT)` from the trace of reasoning to
 <!-- ```zsh
 autogenstudio ui --port 8081
 ``` -->
-
-## To Be Continued...
-
-- [ ] Thoughts on chatmodels, chains, and agents
-- [ ] OpenAI assistant
-- [ ] LangChain Expression Language
-- [ ] Low-code Tools: Flowise, LangFlow, n8n
 
 ## Next Week
 

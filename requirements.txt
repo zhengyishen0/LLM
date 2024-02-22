@@ -46,6 +46,7 @@ langchain-community==0.0.19
 langchain-core==0.1.21
 langchain-openai==0.0.5
 langchainhub==0.1.14
+langgraph==0.0.24
 langserve==0.0.41
 langsmith==0.0.87
 load-dotenv==0.1.0
@@ -91,6 +92,7 @@ SQLAlchemy==2.0.25
 sse-starlette==1.8.2
 stack-data @ file:///home/conda/feedstock_root/build_artifacts/stack_data_1669632077133/work
 starlette==0.36.3
+tavily-python==0.3.1
 tenacity==8.2.3
 terminaltables==3.1.10
 tiktoken==0.5.2
