@@ -26,6 +26,9 @@ We're going to cover the following topics:
 - [ ] OpenAI assistant
 - [ ] LangChain Expression Language
 - [ ] Low-code Tools: Flowise, LangFlow, n8n
+- [ ] zsh code to shell file
+- [ ] Python Function -> Tool -> OpenAI Functions
+- [ ] Chat Completion -> Chat Model -> Agent
 
 ## Python Coding
 
@@ -194,19 +197,28 @@ autogenstudio ui --port 8081
 
 ## Next Week
 
-- [ ] Study [LangChain Modules](https://python.langchain.com/docs/modules/)
+- [x] Study [LangChain Modules](https://python.langchain.com/docs/modules/)
 - [ ] Practice: Document Agent
 - [ ] Open Sourced Models: Mistral, Llama, Open Interpreter
 - [ ] LangChain [Debugging](https://python.langchain.com/docs/guides/debugging) and [Fallbacks](https://python.langchain.com/docs/guides/fallbacks)
 
 ## Project H.E.R
 
-- [ ] APIs (e.g. Uber)
+**Agent model**
+
 - [ ] Conversation starter detection
 - [ ] Conversation ender
-- [ ] Agent model
-- [ ] Audio streaming
-- [ ] Voice recognition
-- [ ] API developer GPT
+
+**Voice**
+
+- [ ] Text-to-Voice
+- [ ] Whisper (Voice-to-Text)
+- [ ] Attention Recaller
+- [ ] Audio Streaming
+
+**3rd Party API**
+
+- [ ] Documentation Finder
+- [ ] API Builder (e.g. Uber)
 - [ ] 3rd-party Service login interface
 - [ ] Adaptive Visual Interface (map, list view)
