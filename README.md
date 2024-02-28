@@ -191,10 +191,6 @@ ReAct extend the idea of `Chain of Thought (CoT)` from the trace of reasoning to
 - [HuggingFace](https://huggingface.co/transformers/)
 - [Colab Ollama](https://colab.research.google.com/drive/1f2qELQboeqr1zPaOABe0WX0_YLbN_KJm#scrollTo=5YzWGOv-0k7s)
 
-<!-- ```zsh
-autogenstudio ui --port 8081
-``` -->
-
 ## Next Week
 
 - [x] Study [LangChain Modules](https://python.langchain.com/docs/modules/)
