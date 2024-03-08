@@ -14,14 +14,15 @@ We're going to cover the following topics:
 - [LLM in Python](./notes/llm_in_python.md): virtual environment, ollama, Google Colab, etc
 - [Basic Conecpts](./notes/basic_concepts.md): Chat Model, Chat Completion, Chain, Assistant, Agent, Tool and Function
 - [Prompt Engineering](./notes/prompt_engineering.md): Few-Shot, Zero-Shot, CoT, RAG, ReAct
-- [Low-code Tools](./notes/low_code_tools.md): Flowise, LangFlow, n8n
+- [Low-Code/No-Code Tools](./notes/low_code_tools.md): Flowise, LangFlow, n8n, etc
 - [LangChain Expression Language](./notes/langchain_expression_language.md): The language used to build LLM applications
+- [Speech to Text](./notes/speech_to_text.md): Whisper (OpenAI) and its alternatives
 - [Project H.E.R](./notes/project_her.md): A project to emulate the AI in the movie "Her"
 
 **Coming Soon:**
 
 - Large Language Models: OpenAI, Gemini, Claude, and Open source LLMs
-- Developer Tools: HuggingFace, Colab, Ollama, LM Studio, Flowsie, n8n, etc
+- Developer Tools: HuggingFace, Colab, Ollama, LM Studio
 - Agents: LangGraph, AutoGen, AutoGPT, etc
 
 ## Resources

@@ -15,5 +15,5 @@ class ChatHistory:
         self.history.append(AIMessage(content=message['output']))
         return message
 
-    def clear(self):
+    def reset(self):
         self.history = [self.system_message]
